@@ -5,7 +5,7 @@ let currentDate = document.querySelector('#current-date');
 let recentCities = document.querySelector('#recent-cities');
 let cityArr = [];
 let formattedCityInput;
-const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // do not forget remove it before push
+const apiKey = ''; // do not forget remove it before push
 
 
 //function to fromat city Input and add alert if input is empty
@@ -50,12 +50,12 @@ let getCityForecastGetCurrent = function(cityName){
         if (response.ok){
          response.json().then(function(data){
              console.log(data);
-             let currentTempEl = document.querySelector('#current-temp');
-             currentTempEl.textContent = forecast.current['humidity']; 
+             
          } 
        )}
     }) 
  };
+
 
 let saveCity = function(city){
     //check for duplicates and push in the end of array
