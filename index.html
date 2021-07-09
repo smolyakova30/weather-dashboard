@@ -16,18 +16,18 @@
     </header>
 
     <main id="main-container">
-        
+
     <div class="col-12 col-md-3">
 
         <div class="card">
             <h3 class="card-header ">Search for a City:</h3>
             <form id="user-form" class="card-body">
-              <input id="cityName" type="text"  class="form-input" placeholder="Enter city name"  />
-              <button type="submit" class="btn">Search</button>
+              <input id="city-input" type="text"  class="form-input" placeholder="Enter city name"  />
+              <button id="search-btn" type="submit" class="btn">Search</button>
             </form>
           </div>
 
-          <div class="card">
+          <div id="recent-cities" class="card">
             <h3 class="card-header">Recent Cities Search</h3>
         </div>
 
@@ -40,8 +40,8 @@
                 <span id="city-name">City Name: need to update</span>
                 <span id="current-date">Current date here</span>
                 <p>Temp: <span id="current-temp"></span> &deg;F</p>
-                <p>Wid: <span id="current-wind"></span> &deg;F</p>
-                <p>Humidity: <span id="current-humidity"></span> MPH</p>
+                <p>Wind: <span id="current-wind"></span> MPF</p>
+                <p>Humidity: <span id="current-humidity"></span>%</p>
                 <p>UV Index: <span id="current-uvi"></span></p>
             </div>
 
