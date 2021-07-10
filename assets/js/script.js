@@ -5,7 +5,7 @@ let currentDate = document.querySelector('#current-date');
 let recentCities = document.querySelector('#recent-cities');
 let cityArr = [];
 let formattedCityInput;
-const apiKey = ''; // do not forget remove it before push
+const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // do not forget remove it before push
 
 
 //function to fromat city Input and add alert if input is empty
@@ -72,30 +72,29 @@ let saveCity = function(city){
         buttonEl.innerHTML = city;
         recentCities.appendChild(buttonEl);
     }
+    // if (localStorage.getItem("cities")) {
+    //     cityArr = JSON.parse(localStorage.getItem("cities"))
+    // }
     localStorage.setItem('cities', JSON.stringify(cityArr)); 
 }
 
 let keepCities = function(){
-    let citiesStorage = localStorage.getItem('cities');
-    let keepCities = JSON.parse(citiesStorage);
-
+    cityArr = JSON.parse(localStorage.getItem('cities'));
+    
     if (!cityArr) {
         cityArr = [];
         return false;
-    } else if (cityArr.length > 5) {
-        // saves only the five most recent cities
+    } else if (cityArr.length > 10) {
         cityArr.shift();
     }
 
-    for (let i = 0; i<keepCities.length; i++){
+    for (let i = 0; i<cityArr.length; i++){
         let buttonEl = document.createElement("button");
         buttonEl.setAttribute("class", "recentCity");
-        buttonEl.innerHTML = keepCities[i];
+        buttonEl.innerHTML = cityArr[i];
         recentCities.appendChild(buttonEl);
-    }
-    
-
-};
+    }  
+ };
 
 keepCities();
 
