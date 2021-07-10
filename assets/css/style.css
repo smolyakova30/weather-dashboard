@@ -46,10 +46,39 @@ input {
   margin: 10px 0;
   border: 1.5px solid rgb(101, 70, 240);
   background-color: rgb(114, 199, 248);
-  
- 
-  
- 
   transform: translate(-1px, -1px);
+}
+
+.date {
+    font-size: 15px;
+    text-decoration-line: underline;
+}
+
+#city-name{
+    font-size: 35px;
+    text-shadow: 1px 1px rgb(1, 1, 51)
+}
+
+#current-date{
+    font-size: 20px;
+    text-shadow: 0.5px 0.5px rgb(1, 1, 51)
+}
+
+
+
+.low {
+    padding: 2px 7px;
+    background-color: green;
+    color: white;
+}
+
+.moderate {
+    background-color: yellow;
+    color: white;
+}
+
+.high {
+    background-color: red;
+    color: white;
 }
 
