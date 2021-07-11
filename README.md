@@ -5,7 +5,7 @@
 <a href=https://smolyakova30.github.io/weather-dashboard> Deployed app link</a>
 
 
-![Alt text](./images/screenshot.JPG?raw=true "Optional Title")
+![Alt text](assets/images/screenshot.JPG "Optional Title")
 
 This is the weather application that displays current weather information as well as a five-day forecast for the user-selected city.
 
