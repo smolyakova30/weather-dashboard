@@ -1,3 +1,4 @@
+
 * {
     padding: 5px;
     box-sizing: border-box;
@@ -64,21 +65,25 @@ input {
     text-shadow: 0.5px 0.5px rgb(1, 1, 51)
 }
 
-
-
-.low {
-    padding: 2px 7px;
-    background-color: green;
+.low{
+    background-color: rgb(6, 240, 56);
     color: white;
 }
+    
 
-.moderate {
-    background-color: yellow;
+
+.moderate{
+    background-color: rgb(245, 245, 35);
     color: white;
 }
-
-.high {
-    background-color: red;
+   
+.high{
+    background-color: rgb(250, 62, 62);
     color: white;
 }
+    
+
+
+
+
 

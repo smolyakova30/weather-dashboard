@@ -6,6 +6,7 @@ let recentCities = document.querySelector('#recent-cities');
 let cityArr = [];
 let formattedCityInput;
 var currentDate = moment().format("dddd, MMMM Do");
+var uvData;
 const apiKey = '5569f0d8093687922f5c0ba190e02e6c'; // do not forget remove it before push
 
 function displayDates() {
@@ -32,9 +33,12 @@ let inputHandeler = function(event){
     if (formattedCityInput === ""){
         alert("Please, enter city name!")
     }else{
+       
         saveCity(formattedCityInput);
         getCityForecast5days(formattedCityInput);
         getCityForecastGetCurrent(formattedCityInput);
+        cityInput.value = "";
+        //document.getElementById('appear').style.display="block"
     }
 
     console.log(formattedCityInput); // needs to be deleted
@@ -43,11 +47,14 @@ let inputHandeler = function(event){
 
 let getCityForecastGetCurrent = function(cityName){
     cityNameDisplay.textContent = cityName;
+
     let URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
     fetch(URL).then(function(response){
         if (response.ok){
          response.json().then(function(data){
              console.log(data);
+             let mIcon = document.querySelector("#main-icon");
+             mIcon.setAttribute('src', `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
              
              let currentTempDisplay = document.querySelector("#current-temp");
              currentTempDisplay.textContent = Math.round(data.main.temp);
@@ -60,6 +67,7 @@ let getCityForecastGetCurrent = function(cityName){
 
              var cityLat = data.coord.lat
              var cityLon = data.coord.lon
+    
              var uvApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=imperial&appid=${apiKey}`
             fetch(uvApi)
             .then(response => response.json())
@@ -69,6 +77,7 @@ let getCityForecastGetCurrent = function(cityName){
                 currentUviDisplay.forEach(node =>{
                     node.textContent = currentUvi;
                     currentUvi = parseInt(currentUvi)
+                    console.log (currentUvi);
                     if (currentUvi <=2){
                         document.querySelector("#current-uvi").classList.add("low")
                     }else if (currentUvi>=3 && currentUvi<=5){
@@ -78,9 +87,10 @@ let getCityForecastGetCurrent = function(cityName){
                     }
                 })
             })
+
   console.log(data)
-         } 
-       )}
+        } 
+     )}
     }) 
 
     displayDates();
@@ -200,6 +210,7 @@ keepCities();
 let searchAgain = function(){
     getCityForecast5days(event.target.textContent);
     getCityForecastGetCurrent(event.target.textContent);
+
 }
 
 //eventListener
