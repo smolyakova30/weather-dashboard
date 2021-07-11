@@ -38,7 +38,11 @@ let inputHandeler = function(event){
         getCityForecast5days(formattedCityInput);
         getCityForecastGetCurrent(formattedCityInput);
         cityInput.value = "";
-        //document.getElementById('appear').style.display="block"
+        document.getElementById('appear').style.visibility = "visible";
+        document.getElementById('appear2').style.visibility = "visible";
+        
+       
+
     }
 
     console.log(formattedCityInput); // needs to be deleted
@@ -78,6 +82,7 @@ let getCityForecastGetCurrent = function(cityName){
                     node.textContent = currentUvi;
                     currentUvi = parseInt(currentUvi)
                     console.log (currentUvi);
+                    document.querySelector("#current-uvi").removeAttribute("class")
                     if (currentUvi <=2){
                         document.querySelector("#current-uvi").classList.add("low")
                     }else if (currentUvi>=3 && currentUvi<=5){
@@ -208,6 +213,9 @@ let keepCities = function(){
 keepCities();
 
 let searchAgain = function(){
+    document.getElementById('appear').style.visibility = "visible"
+    document.getElementById('appear2').style.visibility = "visible"
+    document.getElementById('appear3').style.visibility = "visible"
     getCityForecast5days(event.target.textContent);
     getCityForecastGetCurrent(event.target.textContent);
 
