@@ -33,18 +33,15 @@ let inputHandeler = function(event){
     if (formattedCityInput === ""){
         alert("Please, enter city name!")
     }else{
-       
         saveCity(formattedCityInput);
         getCityForecast5days(formattedCityInput);
         getCityForecastGetCurrent(formattedCityInput);
         cityInput.value = "";
         document.getElementById('appear').style.visibility = "visible";
         document.getElementById('appear2').style.visibility = "visible";
-        
-       
-
+    
     }
-
+    
     console.log(formattedCityInput); // needs to be deleted
 };
 
@@ -209,6 +206,7 @@ let keepCities = function(){
         buttonEl.innerHTML = cityArr[i];
         recentCities.appendChild(buttonEl);
     }  
+   
  };
 
 keepCities();
