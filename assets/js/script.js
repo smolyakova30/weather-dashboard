@@ -21,7 +21,6 @@ function displayDates() {
 //function to fromat city Input and add alert if input is empty
 let inputHandeler = function(event){
     event.preventDefault();
-    console.log("test"); // needs to be deleted
     formattedCityInput = cityInput
     .value
     .trim()
@@ -41,8 +40,6 @@ let inputHandeler = function(event){
         document.getElementById('appear2').style.visibility = "visible";
     
     }
-    
-    console.log(formattedCityInput); // needs to be deleted
 };
 
 
@@ -172,8 +169,7 @@ let getCityForecastGetCurrent = function(cityName){
  
  };
 
-
-let saveCity = function(city){
+function saveCity(city){
     //check for duplicates and push in the end of array
     var count = 0;
     for (var i = 0; i < cityArr.length; i++) {
@@ -193,7 +189,7 @@ let saveCity = function(city){
 }
 
 
-let keepCities = function(){
+function keepCities(){
     cityArr = JSON.parse(localStorage.getItem('cities'));
     
     if (!cityArr) {
@@ -214,7 +210,7 @@ let keepCities = function(){
 
 keepCities();
 
-let searchAgain = function(){
+function searchAgain(event){
    document.getElementById('appear').style.visibility = "visible"
    document.getElementById('appear2').style.visibility = "visible"
     
