@@ -33,7 +33,7 @@ let inputHandeler = function(event){
     if (formattedCityInput === ""){
         alert("Please, enter city name!")
     }else{
-        saveCity(formattedCityInput);
+        
         getCityForecast5days(formattedCityInput);
         getCityForecastGetCurrent(formattedCityInput);
         cityInput.value = "";
@@ -47,11 +47,12 @@ let inputHandeler = function(event){
 
 
 let getCityForecastGetCurrent = function(cityName){
-    cityNameDisplay.textContent = cityName;
-
+    
     let URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${apiKey}`;
     fetch(URL).then(function(response){
         if (response.ok){
+            cityNameDisplay.textContent = cityName;
+            saveCity(formattedCityInput);
          response.json().then(function(data){
              console.log(data);
              let mIcon = document.querySelector("#main-icon");
@@ -91,11 +92,13 @@ let getCityForecastGetCurrent = function(cityName){
             })
 
   console.log(data)
-        } 
-     )}
+  displayDates();
+} 
+)} else {
+         alert('city not found')
+     }
     }) 
 
-    displayDates();
  };
 
  let getCityForecast5days = function(cityName){
@@ -222,7 +225,8 @@ let searchAgain = function(){
 
 //eventListener
 searchBtn.addEventListener('click', inputHandeler)
-$('.recentCity').on("click", searchAgain);
+//we make the recent search buttons dynamically--so they dont exist on page load.  we need to use delegationi!
+$(document).on("click", '.recentCity', searchAgain);
  
 
 
