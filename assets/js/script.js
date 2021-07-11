@@ -15,7 +15,7 @@ function displayDates() {
     // display future forecast dates
     for (let i = 0; i < 5; i++) {
         let forecastDate = $(".date")
-        forecastDate[i].textContent = moment().add(i, "d").format("dddd, MMM Do");
+        forecastDate[i].textContent = moment().add(i+1, "d").format("dddd, MMM Do");
     }
 }
 //function to fromat city Input and add alert if input is empty
