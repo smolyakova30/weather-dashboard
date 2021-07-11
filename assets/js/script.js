@@ -115,6 +115,7 @@ let getCityForecastGetCurrent = function(cityName){
                  console.log(data.list[(i*9)+3].main.humidity) 
                  console.log(data.list[(i*9)+3].weather[0].icon)     
              }
+
              //day 1
              let currentIcon1 = document.querySelector("#icon-1");
              currentIcon1.setAttribute('src', `http://openweathermap.org/img/wn/${data.list[3].weather[0].icon}.png`);
@@ -213,9 +214,9 @@ let keepCities = function(){
 keepCities();
 
 let searchAgain = function(){
-    document.getElementById('appear').style.visibility = "visible"
-    document.getElementById('appear2').style.visibility = "visible"
-    document.getElementById('appear3').style.visibility = "visible"
+   document.getElementById('appear').style.visibility = "visible"
+   document.getElementById('appear2').style.visibility = "visible"
+    
     getCityForecast5days(event.target.textContent);
     getCityForecastGetCurrent(event.target.textContent);
 
